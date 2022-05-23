@@ -5,7 +5,7 @@ import {PurchasesModule} from './purchases/purchases.module';
 @Module({
     imports: [
         TypeOrmModule.forRoot(),
-        PurchasesModule
+        PurchasesModule,
     ]
 })
 export class AppModule {

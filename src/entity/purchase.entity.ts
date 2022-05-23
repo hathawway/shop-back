@@ -10,4 +10,5 @@ export class PurchaseEntity {
 
     @Column("decimal")
     price: number;
+
 }
