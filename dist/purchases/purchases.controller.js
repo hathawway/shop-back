@@ -82,20 +82,10 @@ var PurchasesController = /** @class */ (function () {
             });
         });
     };
-    PurchasesController.prototype.recalcPrice = function (dto) {
+    PurchasesController.prototype.getById = function (id) {
         return __awaiter(this, void 0, void 0, function () {
-            var items;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.entitiesRepository.find({
-                            where: {
-                                id: (0, typeorm_2.In)(dto.ids)
-                            },
-                        })];
-                    case 1:
-                        items = _a.sent();
-                        return [2 /*return*/, items];
-                }
+                return [2 /*return*/, this.entitiesRepository.findOne(id)];
             });
         });
     };
@@ -124,12 +114,12 @@ var PurchasesController = /** @class */ (function () {
         __metadata("design:returntype", Promise)
     ], PurchasesController.prototype, "delete", null);
     __decorate([
-        (0, common_1.Post)(),
-        __param(0, (0, common_1.Body)()),
+        (0, common_1.Get)(':id'),
+        __param(0, (0, common_1.Param)('id')),
         __metadata("design:type", Function),
-        __metadata("design:paramtypes", [Object]),
+        __metadata("design:paramtypes", [String]),
         __metadata("design:returntype", Promise)
-    ], PurchasesController.prototype, "recalcPrice", null);
+    ], PurchasesController.prototype, "getById", null);
     PurchasesController = __decorate([
         (0, common_1.Controller)('purchases')
     ], PurchasesController);

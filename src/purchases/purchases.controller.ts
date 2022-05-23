@@ -1,8 +1,7 @@
 import {Body, Controller, Delete, Get, Param, Post} from '@nestjs/common';
 import {PurchaseEntity} from '../entity/purchase.entity';
 import {InjectRepository} from '@nestjs/typeorm';
-import {In, Repository} from 'typeorm';
-import { RecalcPrice } from '../entity/recalcPrice.dto';
+import {Repository} from 'typeorm';
 
 @Controller('purchases')
 export class PurchasesController {
@@ -24,4 +23,10 @@ export class PurchasesController {
     async delete(@Param('id') id: string): Promise<void> {
         await this.entitiesRepository.delete(id);
     }
+
+    @Get(':id')
+    async getById(@Param('id') id: string): Promise<PurchaseEntity> {
+        return this.entitiesRepository.findOne(id);
+    }
+ 
 }

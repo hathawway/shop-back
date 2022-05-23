@@ -17,7 +17,7 @@ var AppModule = /** @class */ (function () {
         (0, common_1.Module)({
             imports: [
                 typeorm_1.TypeOrmModule.forRoot(),
-                purchases_module_1.PurchasesModule
+                purchases_module_1.PurchasesModule,
             ]
         })
     ], AppModule);
